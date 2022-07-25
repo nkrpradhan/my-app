@@ -1,0 +1,49 @@
+body,
+html {
+  height: 100%;
+}
+.bg-image {
+  position: relative;
+  background-image: url("img2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  filter: blur(3px); /* Adding blur background image */
+}
+.grid {
+  display: grid;
+}
+.grid-container {
+  /* background-image: linear-gradient(
+    to right,
+    rgb(92, 92, 244),
+    rgb(165, 161, 234)
+  ); */
+  color: rgb(235, 235, 248);
+  background: rgba(233, 241, 242, 0.084);
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  width: 50%;
+  max-width: 50%;
+  height: 35rem;
+  margin: auto;
+  margin-top: 3rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 2rem;
+  border: 1px solid white;
+  border-radius: 0.4rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem grey;
+}
+.form-container{
+  width: 120%;
+  gap: 3rem;
+}
+.form-btn-submit{
+  border-radius: .2rem;
+  max-width: 11rem;
+}
