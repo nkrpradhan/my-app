@@ -1,49 +1,33 @@
 import React from "react";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
-import { loginService } from "../../service/loginService";
-import { useDispatch } from "react-redux";
-import { setGlobalUser } from "../../rtk/features/login/userSlice";
+
+// import { loginService } from "../../service/loginService";
+// import { useDispatch } from "react-redux";
+// import { setGlobalUser } from "../../rtk/features/login/userSlice";
+import { LoginStore } from "store/store";
 import axios from "axios";
+import { useEffect } from "react";
 function Login() {
   const [username, setUsername] = React.useState();
   const [password, setPassword] = React.useState();
-  const dispatch = useDispatch();
+
   let navigate = useNavigate();
 
+  const { user, postUser } = LoginStore();
+  // const setUser  = LoginStore().setUser;
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit clicked");
+    console.log("submit clicked", username, password);
 
-    try {
-      //const testresp = await loginService(username, password);
-      //Using application/x-www-form-urlencoded format
-      const params = new URLSearchParams();
-      params.append("username", username);
-      params.append("password", password);
-
-      //node js is not using form data in post its using, application/x-www-form-urlencoded format
-      const loginFormData = new FormData();
-      loginFormData.append("username", username);
-      loginFormData.append("password", password);
-
-      const testresp = await axios.post(
-        "https://reactlogin-service.herokuapp.com/login",
-        params
-      );
-
-      console.log(testresp);
-      if (testresp.status === 200) {
-        dispatch(setGlobalUser(username));
-        navigate("./home", { state: { user: username } });
-      }
-    } catch (e) {
-      console.log("error--", e.response);
-      typeof e.response.data === "undefined"
-        ? alert("No response from server")
-        : alert(e.response.data);
-    }
+    postUser({ username, password });
   };
+  useEffect(() => {
+    console.log("redux state--", user);
+    if (user.user !== "") {
+      navigate("./home", { state: { user: user } });
+    }
+  }, [user.user]);
   return (
     <>
       <div className="bg-image"></div>

@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nkrpradhan.github.io/my-app",
+  "homepage": "./",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.3",
+    "css-loader": "^6.7.1",
     "npm-watch": "^0.11.0",
     "react": "^18.0.0",
     "react-bootstrap": "^2.4.0",
@@ -18,6 +19,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
+    "style-loader": "^3.3.1",
     "web-vitals": "^2.1.4"
   },
   "watch": {
@@ -58,6 +60,10 @@
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.6.0",
     "gh-pages": "^4.0.0",
-    "sass": "^1.53.0"
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.53.0",
+    "svg-url-loader": "^7.1.1",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^4.10.0"
   }
 }
