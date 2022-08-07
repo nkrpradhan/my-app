@@ -7,7 +7,7 @@ const path = require("path");
 const deps = require("./package.json").dependencies;
 
 const env = dotenv.config({
-  path: path.resolve(__dirname, "./.env"),
+  path: path.resolve(__dirname, "./.env.development"),
 }).parsed;
 const envKeys = Object.keys(env).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
@@ -16,11 +16,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 
 module.exports = {
   entry: ["regenerator-runtime", "./src/index.js"],
-  mode: "production",
-  performance: {
-    hints: false,
-  },
-  devtool: "source-map",
+  mode: "development",
   devServer: {
     port: 8085,
   },

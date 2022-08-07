@@ -16,6 +16,7 @@ function Login() {
 
   const { user, postUser } = LoginStore();
   // const setUser  = LoginStore().setUser;
+  console.log("node env--", process.env.NODE_ENV, process.env.REACT_APP_KEY);
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("submit clicked", username, password);
