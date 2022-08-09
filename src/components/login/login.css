@@ -4,7 +4,7 @@ html {
 }
 .bg-image {
   position: relative;
-  background-image: url("img2.jpg");
+  /* background-image: url("img2.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +20,7 @@ html {
     rgb(92, 92, 244),
     rgb(165, 161, 234)
   ); */
-  color: rgb(235, 235, 248);
+  color: rgb(41, 41, 211);
   background: rgba(233, 241, 242, 0.084);
   position: absolute;
   left: 25%;
@@ -39,11 +39,11 @@ html {
   border-radius: 0.4rem;
   box-shadow: 0.2rem 0.2rem 0.5rem grey;
 }
-.form-container{
+.form-container {
   width: 120%;
   gap: 3rem;
 }
-.form-btn-submit{
-  border-radius: .2rem;
+.form-btn-submit {
+  border-radius: 0.2rem;
   max-width: 11rem;
 }

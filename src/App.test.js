@@ -4,6 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 
 test("renders learn react link", () => {
   render(<App />);
-  const userName = screen.getByText("User Name");
+  const userName = screen.getByText(/login page/i);
   expect(userName).toBeInTheDocument();
 });

@@ -11,6 +11,7 @@ import Nestedchild from "./components/Nestedchild";
 import { CallingFn } from "./components/Nestedchild2";
 import Login from "./components/login/Login";
 import Routeconfig from "./components/route/routeconfig";
+import Doctitle from "./components/hooks/Doctitle";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
       {/* <Nestedchild></Nestedchild> */}
       {/* <CallingFn /> */}
       <Routeconfig/>
+      {/* <Doctitle /> */}
     </>
   );
 }

@@ -5,16 +5,21 @@ import { loginService } from "../../service/loginService";
 import { useDispatch } from "react-redux";
 import { setGlobalUser } from "../../rtk/features/login/userSlice";
 import axios from "axios";
+import Alert from "react-bootstrap/Alert";
 function Login() {
-  const [username, setUsername] = React.useState();
-  const [password, setPassword] = React.useState();
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("submit clicked");
-
+    if (username === "" || password === "") {
+      setError("Username or password is empty");
+      return;
+    }
     try {
       //const testresp = await loginService(username, password);
       //Using application/x-www-form-urlencoded format
@@ -32,16 +37,22 @@ function Login() {
         params
       );
 
-      console.log(testresp);
+      console.log("testresp---", testresp);
       if (testresp.status === 200) {
         dispatch(setGlobalUser(username));
         navigate("./home", { state: { user: username } });
       }
     } catch (e) {
-      console.log("error--", e.response);
-      typeof e.response.data === "undefined"
-        ? alert("No response from server")
-        : alert(e.response.data);
+      console.log("catch error block");
+      console.log("error in the test--", e);
+      // typeof e.response.data === "undefined"
+      //   ? alert("No response from server")
+      //   : alert(e.response.data);
+      setError(
+        e.response.data === "undefined"
+          ? "No response from server"
+          : e.response.data
+      );
     }
   };
   return (
@@ -50,22 +61,22 @@ function Login() {
       <div className="grid grid-container">
         <h1>Login page</h1>
         <form className="grid form-container">
-          <label htmlFor="">
+          <label htmlFor="usernameField">
             User Name
             <input
               type="text"
-              name=""
-              id=""
+              name="usernameField"
+              id="usernameField"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </label>
-          <label htmlFor="">
+          <label htmlFor="passwordField">
             Password
             <input
               type="password"
-              name=""
-              id=""
+              name="passwordField"
+              id="passwordField"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -74,6 +85,11 @@ function Login() {
             Enter
           </button>
         </form>
+        {error !== "" && (
+          <Alert key="danger" variant="danger">
+            {error}
+          </Alert>
+        )}
       </div>
     </>
   );
