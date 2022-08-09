@@ -66,6 +66,7 @@ function Login() {
           <label htmlFor="usernameField">
             User Name
             <input
+              className="m-1"
               type="text"
               name="usernameField"
               id="usernameField"
@@ -76,6 +77,7 @@ function Login() {
           <label htmlFor="passwordField">
             Password
             <input
+              className="m-3"
               type="password"
               name="passwordField"
               id="passwordField"
@@ -83,7 +85,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>
-          <button className="form-btn-submit" onClick={handleSubmit}>
+          <button className="btn btn-primary form-btn-submit" onClick={handleSubmit}>
             Enter
           </button>
         </form>
