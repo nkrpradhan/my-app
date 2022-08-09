@@ -18,6 +18,7 @@ function Login() {
     console.log("submit clicked");
     if (username === "" || password === "") {
       setError("Username or password is empty");
+      setTimeout(() => setError(""), 4000);
       return;
     }
     try {
@@ -53,6 +54,7 @@ function Login() {
           ? "No response from server"
           : e.response.data
       );
+      setTimeout(() => setError(""), 5000);
     }
   };
   return (
