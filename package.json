@@ -35,6 +35,7 @@
     "build": "react-scripts build",
     "watch": "npm-watch",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
