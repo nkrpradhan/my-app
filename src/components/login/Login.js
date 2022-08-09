@@ -90,7 +90,7 @@ function Login() {
           </button>
         </form>
         {error !== "" && (
-          <Alert key="danger" variant="danger">
+          <Alert key="dark" variant="dark">
             {error}
           </Alert>
         )}
